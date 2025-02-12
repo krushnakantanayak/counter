@@ -52,11 +52,12 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Counter - ${widget.username}"),
+        backgroundColor: Colors.blue,
+        title: Text("Welcome Back \n ${widget.username}"),
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
-            onPressed: _logout, // Logout button
+            onPressed: _logout,
           )
         ],
       ),
@@ -65,7 +66,7 @@ class HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Counter: $counter', style: TextStyle(fontSize: 24)),
-            SizedBox(height: 20),
+            SizedBox(height: 100),
             FloatingActionButton(
               onPressed: _incrementCounter,
               child: Icon(Icons.add),
