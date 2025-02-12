@@ -9,10 +9,10 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.username});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   int counter = 0;
 
   @override
@@ -37,11 +37,15 @@ class _HomePageState extends State<HomePage> {
 
   void _logout() async {
     await AuthService.logout();
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
-      (route) => false, // This removes all previous routes from the stack
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!context.mounted) return;
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+        (route) => false,
+      );
+    });
   }
 
   @override
