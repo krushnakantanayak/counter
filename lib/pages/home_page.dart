@@ -35,6 +35,13 @@ class HomePageState extends State<HomePage> {
     await DatabaseService.updateUserCounter(widget.username, counter);
   }
 
+  void _decrementCounter() async {
+    setState(() {
+      counter--;
+    });
+    await DatabaseService.updateUserCounter(widget.username, counter);
+  }
+
   void _logout() async {
     await AuthService.logout();
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -67,10 +74,20 @@ class HomePageState extends State<HomePage> {
           children: [
             Text('Counter: $counter', style: TextStyle(fontSize: 24)),
             SizedBox(height: 100),
-            FloatingActionButton(
-              onPressed: _incrementCounter,
-              child: Icon(Icons.add),
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                FloatingActionButton(
+                  onPressed: _incrementCounter,
+                  child: Icon(Icons.add),
+                ),
+                SizedBox(height: 100),
+                FloatingActionButton(
+                  onPressed: _decrementCounter,
+                  child: Icon(Icons.remove),
+                ),
+              ],
+            )
           ],
         ),
       ),
