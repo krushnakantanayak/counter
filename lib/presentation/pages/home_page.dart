@@ -1,4 +1,4 @@
-import 'package:counter/pages/login_page.dart';
+import 'package:counter/presentation/pages/login_page.dart';
 import 'package:counter/services/auth_service.dart';
 import 'package:counter/services/database_service.dart';
 import 'package:flutter/material.dart';
@@ -78,11 +78,13 @@ class HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
+                  heroTag: 'inc',
                   onPressed: _incrementCounter,
                   child: Icon(Icons.add),
                 ),
                 SizedBox(height: 100),
                 FloatingActionButton(
+                  heroTag: 'dec',
                   onPressed: _decrementCounter,
                   child: Icon(Icons.remove),
                 ),
