@@ -36,7 +36,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(
+        title: Text('Login'),
+        backgroundColor: Colors.blue,
+      ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(16.0),
@@ -45,7 +48,11 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               TextField(
                 controller: _usernameController,
-                decoration: InputDecoration(labelText: 'Enter Username'),
+                decoration: InputDecoration(
+                    labelText: 'Enter Username',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    )),
               ),
               SizedBox(height: 20),
               ElevatedButton(
