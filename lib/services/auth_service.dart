@@ -9,7 +9,7 @@ class AuthService {
 
   static Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('loggedInUser');
+    await prefs.remove('loggedInUser'); // Remove saved user on logout
   }
 
   static Future<String?> getLoggedInUser() async {

@@ -1,3 +1,4 @@
+import 'package:counter/pages/login_page.dart';
 import 'package:counter/services/auth_service.dart';
 import 'package:counter/services/database_service.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +9,7 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.username});
 
   @override
-  _HomePageState createState() {
-    return _HomePageState();
-  }
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -38,10 +37,10 @@ class _HomePageState extends State<HomePage> {
 
   void _logout() async {
     await AuthService.logout();
-    Navigator.pushReplacement(
+    Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(
-          builder: (context) => HomePage(username: widget.username)),
+      MaterialPageRoute(builder: (context) => LoginPage()),
+      (route) => false, // This removes all previous routes from the stack
     );
   }
 
@@ -53,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
-            onPressed: _logout,
+            onPressed: _logout, // Logout button
           )
         ],
       ),
