@@ -1,10 +1,10 @@
 # counter
 
-A new Flutter project.
+A new Counter  project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+In a Counter App using Riverpod and SharedPreferences while following Clean Code principles, we structure the project efficiently, ensuring maintainability and scalability. 
 
 A few resources to get you started if this is your first Flutter project:
 
